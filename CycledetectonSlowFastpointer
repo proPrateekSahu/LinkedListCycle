@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int l=0;
+    struct ListNode *p=NULL;
+    struct ListNode *q=NULL;
+    bool hasCycle(ListNode *head) {
+       q=head;
+        p=head;
+        if(p==NULL) return false;
+        if(p->next!=NULL)
+        p=p->next;
+        else return false;
+        if(q->next!=NULL && q->next->next!=NULL)
+            q=q->next->next;
+        else return false;
+        while(p!=q){
+            
+            p=p->next;
+            if(q->next!=NULL && q->next->next!=NULL)
+            q=q->next->next;
+            else
+                return false;
+        }
+        
+        if(p==q)return true;
+        else return false;
+    }
+};
